@@ -1,0 +1,8 @@
+def crack_joke():
+    lang = set_language.get() # get the joke from the user
+    cat = set_category.get() # get the joke but category wise from the user
+    try:
+        joke = pyjokes.get_joke(language=lang,category=cat) # get the language and category list and stored in this variable
+    except Exception as e:
+        joke = f"Error: {e}" # this line just for safety like Library errors or future changes or programmer mistake
+    result_text.set(joke)
