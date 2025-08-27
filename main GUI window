@@ -1,0 +1,26 @@
+root = tk.Tk()
+root.title("The Great Laughter Challenge")
+root.geometry("500x400")
+root.resizable(False,False)
+
+
+tk.Label(root, text="Language").pack(pady=6)
+set_language = tk.StringVar(value=LANGUAGES[0])
+Language_selection = tk.OptionMenu(root, set_language,  *LANGUAGES)
+Language_selection.pack()
+
+tk.Label(root, text="Category").pack(pady=6)
+set_category = tk.StringVar(value=CATEGORIES[0])
+Category_selection = tk.OptionMenu(root,set_category,  *CATEGORIES)
+Category_selection.pack()
+
+
+tk.Button(root, text="Get a Joke", command=crack_joke).pack(pady=10)
+tk.Button(root, text="Save the Joke", command=save_joke).pack(pady=10)
+tk.Button(root, text="View Saved Jokes", command=view_joke).pack(pady=10)
+
+
+result_text = tk.StringVar()
+tk.Label(root, textvariable=result_text, fg="Blue", wraplength=450, justify="center").pack(pady=10)
+
+root.mainloop()
