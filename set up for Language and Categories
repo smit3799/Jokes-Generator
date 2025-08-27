@@ -1,0 +1,7 @@
+import pyjokes
+import tkinter as tk
+
+from pyjokes.pyjokes import LANGUAGES, CATEGORIES
+
+LANGUAGES = ["cs", "de", "en", "es", "eu", "fr", "gl", "hu", "it", "lt", "pl", "ru", "sv"]
+CATEGORIES = ["neutral", "chuck", "all"]
