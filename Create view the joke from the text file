@@ -1,0 +1,6 @@
+def view_joke():
+    try:
+        with open("Saved_jokes.txt","r", encoding="UTF-8") as file:  # this one read our text file
+            jokes = file.read().strip() # remove the white space between the jokes but in the editor
+    except FileNotFoundError: # while this line activate when user try to open the text file without saving a single joke
+        jokes = "No Jokes saved Yet!"
