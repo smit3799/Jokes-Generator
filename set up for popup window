@@ -1,0 +1,26 @@
+popup = tk.Toplevel(root) # this creates new window top of your main Tkinter window(root)
+    popup.title("Saved Jokes") # give the title to pop up window
+    popup.geometry("500x400") # set the size of popup window
+
+    text_area = tk.Text(popup,wrap="word") # this will open up text editor for us where our jokes will be displayed and
+    # wrap = "word" means if a jokes is long then rest of jokes will be displayed in the next line
+
+    text_area.insert("1.0",jokes)  # add the jokes in to text editor one by one
+    # "1.0" index means that every new jokes add at the beginning and push down old jokes one by one
+
+    text_area.config(state="disabled") # this line makes editor read only so user can not accidentally write in it!
+    # while state="disabled" make the jokes unchangeable so user can not edit it!
+
+    text_area.pack(expand=True, fill="both") # first it place text inside the editor
+    # secondly expand = True allow the user to expand window size if they want to see the editor in big display then!
+    # Third if user expand the window so the text will set according to the window by use of --> fill = "both"
+
+    scrollbar = tk.Scrollbar(text_area) # this allows the user to scroll the jokes in the text editor
+    scrollbar.pack(side="right",fill="y") # this place the text editor in right side when user try to open it
+    # fill = "y" if user want to stretch the window vertically then it allows it!
+
+    text_area.config(yscrollcommand=scrollbar.set) # this will connect text areas means jokes text with the scroll bar
+    # also ensure that jokes will move up and down when user scroll the window
+
+    scrollbar.config(command=text_area.yview) # this line scroll the text according to the scrollbar moves
+    # just above line is first connection of moving text and this one second connection which moves the text according the scrollbar
